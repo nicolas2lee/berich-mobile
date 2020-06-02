@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">berich</string>
+    <string name="title_activity_buttom_menu">ButtomMenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_fortune">Fortune</string>
+    <string name="title_myaccount">Me</string>
+    <string name="fund_test">hello</string>
+</resources>
