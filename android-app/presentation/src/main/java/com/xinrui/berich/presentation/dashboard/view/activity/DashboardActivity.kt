@@ -24,17 +24,23 @@ class DashboardActivity : AppCompatActivity(), FundDetail.OnFragmentInteractionL
             }*/
             R.id.navigation_fortune -> {
                 //textMessage.setText(R.string.title_fortune)
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.dashboard_fragement_container, FundListFragment.newInstance())
-                    .commitNow()
-                return@OnNavigationItemSelectedListener true
+                return@OnNavigationItemSelectedListener navigateToDefaultFortunePage()
             }
             R.id.navigation_myaccount -> {
                 //textMessage.setText(R.string.title_myaccount)
                 return@OnNavigationItemSelectedListener true
-            }
+            } else -> {
+                //textMessage.setText(R.string.title_fortune)
+            return@OnNavigationItemSelectedListener navigateToDefaultFortunePage()
         }
-        false
+        }
+    }
+
+    private fun navigateToDefaultFortunePage(): Boolean {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dashboard_fragement_container, FundListFragment.newInstance())
+            .commitNow()
+        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +49,7 @@ class DashboardActivity : AppCompatActivity(), FundDetail.OnFragmentInteractionL
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         initializeInjector()
+        navigateToDefaultFortunePage()
     }
 
     private fun initializeInjector() {
