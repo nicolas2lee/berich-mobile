@@ -15,4 +15,8 @@ class FundListPresenter @Inject constructor(val getFundListUseCase: GetFundListU
             .toList().blockingGet()
         fundListView.renderFundList(fundList)
     }
+
+    fun onFundClicked(fundModel: FundModel) {
+        fundListView.viewFunndDetail(fundModel)
+    }
 }

@@ -5,4 +5,21 @@
     <string name="title_fortune">Fortune</string>
     <string name="title_myaccount">Me</string>
     <string name="fund_test">hello</string>
+
+    <!-- fund string-->
+    <string name="fund_name">Fund name</string>
+    <string name="fund_current_value">fund_current_value</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_login_oauth2_facebook">facebook</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

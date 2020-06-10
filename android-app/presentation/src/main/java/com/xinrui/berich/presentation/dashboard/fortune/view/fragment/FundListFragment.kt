@@ -1,9 +1,12 @@
 package com.xinrui.berich.presentation.dashboard.fortune.view.fragment
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,13 +17,15 @@ import com.xinrui.berich.presentation.dashboard.fortune.presenter.FundListPresen
 import com.xinrui.berich.presentation.dashboard.fortune.view.FundListView
 import com.xinrui.berich.presentation.dashboard.fortune.view.adapter.FundListAdapter
 import com.xinrui.berich.presentation.BerichApplication
+import com.xinrui.berich.presentation.dashboard.fortune.view.adapter.FundListAdapter.OnItemClickListener
+import java.text.FieldPosition
 import javax.inject.Inject
 
-class DashboardFragment: Fragment(), FundListView {
 
+class FundListFragment: Fragment(), FundListView {
 
     companion object {
-        fun newInstance() = DashboardFragment()
+        fun newInstance() = FundListFragment()
     }
 
     @Inject lateinit var fundListPresenter: FundListPresenter
@@ -38,7 +43,15 @@ class DashboardFragment: Fragment(), FundListView {
     ): View {
         fundListPresenter.fundListView = this;
         val viewManager = LinearLayoutManager(this.context)
-        val fragementView = inflater.inflate(R.layout.dashboard_fragment, container, false)
+        val fragementView = inflater.inflate(R.layout.fragment_fund_list, container, false)
+        val recycleViewHeader = inflater.inflate(R.layout.rv_fund_list_header, container, false)
+        fundListAdapter.header = recycleViewHeader
+        val onItemClickListener: OnItemClickListener = object : OnItemClickListener {
+            override fun onFundItemClicked(funModel: FundModel) {
+                    fundListPresenter.onFundClicked(funModel)
+            }
+        }
+        fundListAdapter.onItemClickListener = onItemClickListener
         val recyclerView = fragementView!!.findViewById<RecyclerView>(R.id.my_recycler_view)
         recyclerView.apply {
             // use this setting to improve performance if you know that changes
@@ -66,5 +79,10 @@ class DashboardFragment: Fragment(), FundListView {
         fundListAdapter.funds = funds
     }
 
-
+    override fun viewFunndDetail(fund: FundModel) {
+        Log.d("debug", fund.toString())
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.dashboard_fragement_container, FundDetail.newInstance(fund))
+            .commitNow()
+    }
 }

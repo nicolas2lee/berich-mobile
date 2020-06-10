@@ -5,52 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="64dp">
-        <!--  android:background="?attr/selectableItemBackground"
-                                                   android:minHeight="64dp"-->
-        <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:minHeight="64dp">-->
-
         <TextView
-            android:id="@+id/fund_list_item_name"
+            android:id="@+id/rv_fund_list_header_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:maxLines="1"
+            android:text="@string/fund_name"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            />
-
-        <TextView
-            android:id="@+id/fund_list_item_secondary_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fund_list_item_name"
-            android:layout_gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:maxLines="2"
-            android:textAppearance="?attr/textAppearanceBody2"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toEndOf="@id/fund_list_item_name"
+            android:layout_toEndOf="@id/rv_fund_list_header_name"
             android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/fund_list_item_current_value"
+                    android:id="@+id/rv_fund_list_header_current_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="16dp"
                     android:paddingStart="16dp"
                     android:maxLines="1"
-                    android:text="value"
+                    android:text="@string/fund_current_value"
                     android:textAppearance="?attr/textAppearanceBody2"
                     />
         </LinearLayout>
-
 </RelativeLayout>
